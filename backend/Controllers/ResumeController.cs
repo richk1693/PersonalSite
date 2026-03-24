@@ -18,7 +18,7 @@ public class ResumeFunction
             Location: "Cleveland, OH",
             LinkedIn: "https://linkedin.com/in/richardkern",
             GitHub: "https://github.com/richk1693",
-            Summary: "Passionate software engineer with experience building scalable web applications and APIs. Dedicated to crafting clean, maintainable code and delivering exceptional user experiences. Based in Cleveland, OH and open to both local and remote opportunities.",
+            Summary: "Passionate software engineer with experience building scalable web applications and APIs. Dedicated to crafting clean, maintainable code and delivering exceptional user experiences. Based in Cleveland, OH.",
             Experience:
             [
                 new Experience(
