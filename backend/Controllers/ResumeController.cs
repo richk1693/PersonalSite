@@ -52,12 +52,12 @@ public class ResumeController : ControllerBase
             ],
             Skills:
             [
-                new Skill("Languages", ["C#", "TypeScript", "JavaScript", "SQL", "Python"]),
-                new Skill("Frontend", ["React", "Next.js", "HTML5", "CSS3", "Tailwind CSS"]),
+                new Skill("Languages", ["C#", "TypeScript", "JavaScript", "SQL", "Python", "Java"]),
+                new Skill("Frontend", ["React", "Next.js", "HTML5", "CSS3", "Tailwind CSS", "Angular"]),
                 new Skill("Backend", ["ASP.NET Core", "Node.js", "RESTful APIs", "SignalR"]),
-                new Skill("Databases", ["SQL Server", "PostgreSQL", "Redis", "MongoDB"]),
-                new Skill("Cloud & DevOps", ["Azure", "Docker", "GitHub Actions", "CI/CD"]),
-                new Skill("Tools", ["Git", "Visual Studio", "VS Code", "Jira", "Figma"])
+                new Skill("Databases", ["SQL Server", "PostgreSQL", "Redis", "MongoDB", "MySQL"]),
+                new Skill("Cloud & DevOps", ["Azure", "Docker", "GitHub Actions", "CI/CD", "Jenkins"]),
+                new Skill("Tools", ["Claude Code", "Git", "Visual Studio", "VS Code", "Jira", "Figma", "IntelliJ IDEA", "Azure DevOps"])
             ],
             Projects:
             [
@@ -73,13 +73,6 @@ public class ResumeController : ControllerBase
                     Description: "A real-time weather dashboard for the Cleveland area featuring historical trends, alerts, and a 7-day forecast with interactive charts.",
                     Technologies: ["React", "TypeScript", "C#", "Azure Functions", "Chart.js"],
                     GitHubUrl: "https://github.com/richk1693/cleveland-weather",
-                    LiveUrl: null
-                ),
-                new Project(
-                    Name: "Task Board API",
-                    Description: "A lightweight task management REST API with real-time updates via SignalR. Supports projects, boards, and team collaboration.",
-                    Technologies: ["C#", "ASP.NET Core", "SignalR", "PostgreSQL", "Docker"],
-                    GitHubUrl: "https://github.com/richk1693/task-board-api",
                     LiveUrl: null
                 )
             ],
