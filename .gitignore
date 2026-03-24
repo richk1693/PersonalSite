@@ -1,0 +1,15 @@
+# Backend build artifacts
+backend/bin/
+backend/obj/
+
+# Frontend build artifacts and dependencies
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+
+# Editor / OS
+.DS_Store
+.vscode/
+*.suo
+*.user
+.idea/
