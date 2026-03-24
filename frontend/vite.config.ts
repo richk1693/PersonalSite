@@ -8,11 +8,11 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5020',
+        target: 'http://localhost:7071',
         changeOrigin: true,
       },
       '/health': {
-        target: 'http://localhost:5020',
+        target: 'http://localhost:7071',
         changeOrigin: true,
       },
     },

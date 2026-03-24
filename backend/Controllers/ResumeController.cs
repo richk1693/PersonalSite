@@ -1,14 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.AspNetCore.Http;
 using PersonalSite.Api.Models;
 
 namespace PersonalSite.Api.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-public class ResumeController : ControllerBase
+public class ResumeFunction
 {
-    [HttpGet]
-    public ActionResult<Resume> GetResume()
+    [Function("Resume")]
+    public IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "resume")] HttpRequest req)
     {
         var resume = new Resume(
             Name: "Richard Kern",
@@ -88,6 +88,6 @@ public class ResumeController : ControllerBase
             ]
         );
 
-        return Ok(resume);
+        return new OkObjectResult(resume);
     }
 }
