@@ -16,7 +16,7 @@ public class ResumeFunction
             Email: "richard@richardkern.dev",
             Phone: "(440) 555-0123",
             Location: "Cleveland, OH",
-            LinkedIn: "https://linkedin.com/in/richardkern",
+            LinkedIn: "https://www.linkedin.com/in/richard-kern-12146811a/",
             GitHub: "https://github.com/richk1693",
             Summary: "Passionate software engineer with experience building scalable web applications and APIs. Dedicated to crafting clean, maintainable code and delivering exceptional user experiences. Based in Cleveland, OH.",
             Experience:
