@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Resume",
+    "scriptFile": "PersonalSite.Api.dll",
+    "entryPoint": "PersonalSite.Api.Controllers.ResumeFunction.Run",
+    "language": "dotnet-isolated",
+    "properties": {
+      "IsCodeless": false
+    },
+    "bindings": [
+      {
+        "name": "req",
+        "direction": "In",
+        "type": "httpTrigger",
+        "authLevel": "Anonymous",
+        "methods": [
+          "get"
+        ],
+        "route": "resume",
+        "properties": {}
+      },
+      {
+        "name": "$return",
+        "type": "http",
+        "direction": "Out"
+      }
+    ]
+  }
+]

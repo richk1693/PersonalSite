@@ -1,77 +1,73 @@
-# PersonalSite
-richardkern.dev website
+# React + TypeScript + Vite
 
-This repository contains the source code for [richardkern.dev](https://richardkern.dev), built with a modern React frontend and a robust .NET Web API backend.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Project Structure
+Currently, two official plugins are available:
 
-*   **backend/**: A .NET 10.0 Web API project serving data and handling logic.
-*   **frontend/**: A React 19 application built with Vite, TypeScript, and Tailwind CSS.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Prerequisites
+## React Compiler
 
-Before you begin, ensure you have the following installed:
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-1.  **[.NET 10.0 SDK](https://dotnet.microsoft.com/download/dotnet/10.0)** (or later).
-2.  **[Node.js](https://nodejs.org/)** (LTS version recommended) and npm.
-3.  **[Visual Studio Code](https://code.visualstudio.com/)**.
-4.  **[C# Dev Kit Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csdevkit)** for VS Code (recommended for best debugging experience).
+## Expanding the ESLint configuration
 
-## Setup & Installation
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-1.  **Clone the repository:**
-    ```bash
-    git clone <repository_url>
-    cd rkWebsite
-    ```
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-2.  **Install Frontend Dependencies:**
-    ```bash
-    cd frontend
-    npm install
-    ```
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-3.  **Restore Backend Packages:**
-    ```bash
-    cd backend
-    dotnet restore
-    ```
-    *(Note: VS Code or Visual Studio will typically handle this automatically upon opening).*
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-## Running the Project (VS Code)
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-This project is configured for a seamless "Full Stack" debugging experience within VS Code.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-1.  Open the `rkWebsite` folder in **VS Code**.
-2.  Navigate to the **Run and Debug** view (`Ctrl+Shift+D`).
-3.  Select **"Full Stack"** from the dropdown configuration menu.
-4.  Press **F5** (or click the green play button).
-
-This task will automatically:
-*   Build the .NET backend.
-*   Start the Vite development server.
-*   Launch the API (Swagger UI available at `http://localhost:5020/swagger`).
-*   Launch the frontend in a Chrome window (at `http://localhost:5173`).
-
-### Manual Start
-
-If you prefer running terminals manually:
-
-*   **Backend**:
-    ```bash
-    cd backend
-    dotnet run
-    ```
-    *Runs on: `http://localhost:5020`*
-
-*   **Frontend**:
-    ```bash
-    cd frontend
-    npm run dev
-    ```
-    *Runs on: `http://localhost:5173` (proxies `/api` requests to backend port 5020).*
-
-## Development Config
-
-*   **Ports**: Fixed in `backend/Properties/launchSettings.json` (5020) and `frontend/vite.config.ts`.
-*   **Debug Profiles**: Configured in `.vscode/launch.json`.
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
